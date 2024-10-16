@@ -1,6 +1,5 @@
 spring:
   application:
     name: funds-transfer
-
-server:
-  port: 8081
+  profiles:
+    active: @active.profile@
