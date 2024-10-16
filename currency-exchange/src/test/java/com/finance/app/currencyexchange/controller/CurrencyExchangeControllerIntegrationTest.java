@@ -1,5 +1,6 @@
 package com.finance.app.currencyexchange.controller;
 
+import com.finance.app.commons.path.CurrencyExchangeApiPaths;
 import com.finance.app.currencyexchange.CurrencyExchangeApplicationTests;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.params.ParameterizedTest;
@@ -19,14 +20,14 @@ class CurrencyExchangeControllerIntegrationTest extends CurrencyExchangeApplicat
             "USd, NOK, 8.75"
     })
     void testGetExchangeRate_Success(String fromCurrency, String toCurrency, String expectedRate) throws Exception {
-        mockMvc.perform(get("/api/exchange-rate/" + fromCurrency + "/" + toCurrency))
+        mockMvc.perform(get(CurrencyExchangeApiPaths.getExchangeRateApiPath(fromCurrency, toCurrency, null)))
                 .andExpect(status().isOk())
                 .andExpect(content().string(expectedRate));
     }
 
     @Test
     void testGetExchangeRate_NotFound() throws Exception {
-        mockMvc.perform(get("/api/exchange-rate/USD/ABC"))
+        mockMvc.perform(get(CurrencyExchangeApiPaths.getExchangeRateApiPath("USD", "ABC", null)))
                 .andExpect(status().isNotFound());
     }
 }

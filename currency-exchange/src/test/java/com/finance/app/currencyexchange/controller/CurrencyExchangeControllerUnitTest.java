@@ -1,5 +1,6 @@
 package com.finance.app.currencyexchange.controller;
 
+import com.finance.app.commons.path.CurrencyExchangeApiPaths;
 import com.finance.app.currencyexchange.service.CurrencyExchangeService;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -29,7 +30,7 @@ class CurrencyExchangeControllerUnitTest {
         BigDecimal rate = new BigDecimal("0.85");
         when(testExchangeService.getExchangeRate("USD", "EUR")).thenReturn(rate);
         //act,assert
-        mockMvc.perform(get("/api/exchange-rate/USD/EUR"))
+        mockMvc.perform(get(CurrencyExchangeApiPaths.getExchangeRateApiPath("USD", "EUR", null)))
                 .andExpect(status().isOk())
                 .andExpect(content().string("0.85"));
     }
@@ -37,9 +38,9 @@ class CurrencyExchangeControllerUnitTest {
     @Test
     void testGetExchangeRate_NotFound() throws Exception {
         //arrange
-        when(testExchangeService.getExchangeRate("ABC", "QWE")).thenReturn(null);
+        when(testExchangeService.getExchangeRate("USD", "ABC")).thenReturn(null);
         //act,assert
-        mockMvc.perform(get("/api/exchange-rate/USD/ABC"))
+        mockMvc.perform(get(CurrencyExchangeApiPaths.getExchangeRateApiPath("USD", "ABC", null)))
                 .andExpect(status().isNotFound());
     }
 }

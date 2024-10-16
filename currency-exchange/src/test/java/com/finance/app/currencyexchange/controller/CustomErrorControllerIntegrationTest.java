@@ -1,5 +1,6 @@
 package com.finance.app.currencyexchange.controller;
 
+import com.finance.app.commons.path.CurrencyExchangeApiPaths;
 import com.finance.app.currencyexchange.CurrencyExchangeApplicationTests;
 import org.junit.jupiter.api.Test;
 
@@ -10,7 +11,7 @@ class CustomErrorControllerIntegrationTest extends CurrencyExchangeApplicationTe
 
     @Test
     void handleError() throws Exception {
-        mockMvc.perform(get("/api/exchange-rate/"))
+        mockMvc.perform(get(CurrencyExchangeApiPaths.ROOT_PATH))
                 .andExpect(status().isNotFound());
     }
 }
