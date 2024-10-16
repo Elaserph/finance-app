@@ -20,6 +20,6 @@ public class CurrencyExchangeController {
     })
     public ResponseEntity<BigDecimal> getExchangeRate(@PathVariable String currencyFrom, @PathVariable String currencyTo) {
         var rate = currencyExchangeService.getExchangeRate(currencyFrom, currencyTo);
-        return ResponseEntity.ok(rate);
+        return rate != null ? ResponseEntity.ok(rate): ResponseEntity.notFound().build();
     }
 }

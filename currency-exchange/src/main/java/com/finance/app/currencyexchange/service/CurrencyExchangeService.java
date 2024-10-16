@@ -13,6 +13,6 @@ public class CurrencyExchangeService {
     private CurrencyExchangeRepository CurrencyExchangeRepository;
 
     public BigDecimal getExchangeRate(String currencyFrom, String currencyTo){
-        return CurrencyExchangeRepository.findRateByCurrencyFromAndCurrencyTo(currencyFrom, currencyTo);
+        return CurrencyExchangeRepository.findRateByCurrencyFromAndCurrencyTo(currencyFrom.toUpperCase(), currencyTo.toUpperCase());
     }
 }
