@@ -12,7 +12,7 @@ public class CurrencyExchangeService {
     @Autowired
     private CurrencyExchangeRepository CurrencyExchangeRepository;
 
-    public BigDecimal getExchangeRate(String currencyFrom, String currencyTo){
+    public BigDecimal getExchangeRate(String currencyFrom, String currencyTo) {
         return CurrencyExchangeRepository.findRateByCurrencyFromAndCurrencyTo(currencyFrom.toUpperCase(), currencyTo.toUpperCase());
     }
 }

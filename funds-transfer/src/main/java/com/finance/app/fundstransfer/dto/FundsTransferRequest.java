@@ -10,6 +10,7 @@ import java.math.BigDecimal;
 
 @Data
 public class FundsTransferRequest implements Serializable {
+
     @NotNull(message = "Owner ID is required")
     private Long ownerId;
 

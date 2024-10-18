@@ -14,12 +14,12 @@ public class AccountController {
     @Autowired
     private AccountService accountService;
 
-    @GetMapping(path = {
+    @PostMapping(path = {
             "/funds-transfer",
             "/funds-transfer/v1"
     })
     public ResponseEntity<String> transferFunds(@Valid @RequestBody FundsTransferRequest request) {
-        var success = accountService.transferFunds(request);
+        boolean success = accountService.transferFunds(request);
         return success ? ResponseEntity.ok("Success!") : ResponseEntity.badRequest().body("Transfer failed!");
     }
 }
