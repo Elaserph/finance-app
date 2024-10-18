@@ -12,6 +12,6 @@ public class CustomErrorController implements ErrorController {
     @GetMapping("/error")
     public String handleError(HttpServletRequest request) {
         Object status = request.getAttribute(RequestDispatcher.ERROR_STATUS_CODE);
-        return status != null ? "Error with status code: " + Integer.valueOf(status.toString()) : "Unknown error";
+        return status != null ? "Oops! where are you going? status code: " + Integer.valueOf(status.toString()) : "Unknown error, Oops!";
     }
 }
