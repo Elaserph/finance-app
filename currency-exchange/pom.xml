@@ -13,12 +13,14 @@
     <description>currency exchange api of finance app</description>
     <properties>
         <java.version>17</java.version>
+        <jacoco.reportpath>${project.build.directory}/../code-coverage-report/target/jacoco.exec</jacoco.reportpath>
+        <service-commons.version>0.0.1-SNAPSHOT</service-commons.version>
     </properties>
     <dependencies>
         <dependency>
             <groupId>com.finance.app</groupId>
             <artifactId>service-commons</artifactId>
-            <version>0.0.1-SNAPSHOT</version>
+            <version>${service-commons.version}</version>
         </dependency>
         <dependency>
             <groupId>org.springframework.boot</groupId>

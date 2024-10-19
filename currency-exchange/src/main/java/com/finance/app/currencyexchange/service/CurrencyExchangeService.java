@@ -10,9 +10,9 @@ import java.math.BigDecimal;
 public class CurrencyExchangeService {
 
     @Autowired
-    private CurrencyExchangeRepository CurrencyExchangeRepository;
+    private CurrencyExchangeRepository currencyExchangeRepository;
 
     public BigDecimal getExchangeRate(String currencyFrom, String currencyTo) {
-        return CurrencyExchangeRepository.findRateByCurrencyFromAndCurrencyTo(currencyFrom.toUpperCase(), currencyTo.toUpperCase());
+        return currencyExchangeRepository.findRateByCurrencyFromAndCurrencyTo(currencyFrom.toUpperCase(), currencyTo.toUpperCase());
     }
 }

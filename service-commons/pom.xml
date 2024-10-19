@@ -13,6 +13,7 @@
     <description>beans jar to store common api-paths, models etc</description>
     <properties>
         <java.version>17</java.version>
+        <jacoco.reportpath>${project.build.directory}/../code-coverage-report/target/jacoco.exec</jacoco.reportpath>
     </properties>
     <dependencies>
         <dependency>
