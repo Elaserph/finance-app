@@ -1,0 +1,16 @@
+spring:
+  datasource:
+    url: jdbc:h2:mem:testDb
+  jpa:
+    show-sql: true
+    defer-datasource-initialization: true
+  h2:
+    console:
+      enabled: false
+
+server:
+  port: 8081
+
+currency:
+  exchange:
+    server: http://localhost:8080

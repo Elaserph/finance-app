@@ -43,13 +43,13 @@ public class AccountService {
 
     private void validateTransfer(FundsTransferRequest request, AccountEntity senderAccount, AccountEntity receiverAccount) {
         if (senderAccount == null) {
-            throw new ResourceNotFoundException("Sender account or Owner not found!");  // Invalid request
+            throw new ResourceNotFoundException("Transfer failed! Sender account or Owner not found!");  // Invalid request
         }
         if (receiverAccount == null) {
-            throw new ResourceNotFoundException("Receiver account is not found!");  // Invalid request
+            throw new ResourceNotFoundException("Transfer failed! Receiver account is not found!");  // Invalid request
         }
         if (senderAccount.getBalance().compareTo(request.getTransferAmount()) < 0) {
-            throw new InsufficientFundsException("Insufficient funds, check balance!");  // Insufficient funds
+            throw new InsufficientFundsException("Transfer failed! Insufficient funds, check balance!");  // Insufficient funds
         }
     }
 

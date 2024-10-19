@@ -28,7 +28,7 @@ public class CurrencyExchangeApiWrapper {
             return response.getBody();
         } catch (HttpClientErrorException ex) {
             if (ex.getStatusCode() == HttpStatus.NOT_FOUND) {
-                throw new ResourceNotFoundException("Exchange rate not found for " + currencyFrom + " to " + currencyTo);
+                throw new ResourceNotFoundException("Transfer failed! Exchange rate not found for " + currencyFrom + " to " + currencyTo);
             } else {
                 throw ex;  // Re-throw other exceptions
             }
