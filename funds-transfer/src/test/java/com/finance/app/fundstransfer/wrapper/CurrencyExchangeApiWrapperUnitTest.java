@@ -22,13 +22,11 @@ import static org.springframework.test.util.ReflectionTestUtils.setField;
 @ExtendWith(MockitoExtension.class)
 class CurrencyExchangeApiWrapperUnitTest {
 
+    private static final String EXCHANGE_RATE_TEST_URL = "http://localhost:8080/api/exchange-rate/USD/EUR";
     @Mock
     private RestTemplate restTemplateTest;
-
     @InjectMocks
     private CurrencyExchangeApiWrapper currencyExchangeApiWrapperTest;
-
-    private static final String EXCHANGE_RATE_TEST_URL = "http://localhost:8080/api/exchange-rate/USD/EUR";
 
     @BeforeEach
     public void setUp() {
@@ -36,8 +34,8 @@ class CurrencyExchangeApiWrapperUnitTest {
         setField(currencyExchangeApiWrapperTest, "currencyExchangeServer", "http://localhost:8080");
     }
 
-        @Test
-        void testGetExchangeRate_Success() {
+    @Test
+    void testGetExchangeRate_Success() {
         BigDecimal expectedRate = BigDecimal.valueOf(0.85);
         when(restTemplateTest.getForEntity(EXCHANGE_RATE_TEST_URL, BigDecimal.class))
                 .thenReturn(new ResponseEntity<>(expectedRate, HttpStatus.OK));
@@ -46,8 +44,8 @@ class CurrencyExchangeApiWrapperUnitTest {
         assertEquals(expectedRate, actualRate);
     }
 
-        @Test
-        void testGetExchangeRate_NotFound() {
+    @Test
+    void testGetExchangeRate_NotFound() {
         when(restTemplateTest.getForEntity(EXCHANGE_RATE_TEST_URL, BigDecimal.class))
                 .thenThrow(new HttpClientErrorException(HttpStatus.NOT_FOUND));
 
@@ -55,8 +53,8 @@ class CurrencyExchangeApiWrapperUnitTest {
                 currencyExchangeApiWrapperTest.getExchangeRate("USD", "EUR"));
     }
 
-        @Test
-        void testGetExchangeRate_OtherException() {
+    @Test
+    void testGetExchangeRate_OtherException() {
         when(restTemplateTest.getForEntity(EXCHANGE_RATE_TEST_URL, BigDecimal.class))
                 .thenThrow(new HttpClientErrorException(HttpStatus.INTERNAL_SERVER_ERROR));
 

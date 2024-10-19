@@ -4,7 +4,10 @@ import com.finance.app.commons.path.CurrencyExchangeApiPaths;
 import com.finance.app.currencyexchange.service.CurrencyExchangeService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
-import org.springframework.web.bind.annotation.*;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RestController;
 
 import java.math.BigDecimal;
 
@@ -21,6 +24,6 @@ public class CurrencyExchangeController {
     })
     public ResponseEntity<BigDecimal> getExchangeRate(@PathVariable String currencyFrom, @PathVariable String currencyTo) {
         var rate = currencyExchangeService.getExchangeRate(currencyFrom, currencyTo);
-        return rate != null ? ResponseEntity.ok(rate): ResponseEntity.notFound().build();
+        return rate != null ? ResponseEntity.ok(rate) : ResponseEntity.notFound().build();
     }
 }
