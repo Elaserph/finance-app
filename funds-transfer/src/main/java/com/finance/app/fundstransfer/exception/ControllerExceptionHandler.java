@@ -33,14 +33,6 @@ public class ControllerExceptionHandler {
         return new ResponseEntity<>(response, HttpStatus.CONFLICT);
     }
 
-    @ExceptionHandler(IllegalArgumentException.class)
-    public ResponseEntity<Map<String, String>> handleIllegalArgumentException(IllegalArgumentException ex) {
-        Map<String, String> response = new HashMap<>();
-        response.put(ERROR, "Invalid request");
-        response.put(MESSAGE, ex.getMessage());
-        return new ResponseEntity<>(response, HttpStatus.BAD_REQUEST);
-    }
-
     @ExceptionHandler(InsufficientFundsException.class)
     public ResponseEntity<Map<String, String>> handleInsufficientFundsException(InsufficientFundsException ex) {
         Map<String, String> response = new HashMap<>();

@@ -20,7 +20,7 @@ public class AccountController {
             FundsTransferApiPaths.FUNDS_TRANSFER_PATH_V1
     })
     public ResponseEntity<String> transferFunds(@Valid @RequestBody FundsTransferRequest request) {
-        boolean success = accountService.transferFunds(request);
-        return success ? ResponseEntity.ok("Success!") : ResponseEntity.badRequest().body("Transfer failed!");
+        accountService.transferFunds(request);
+        return ResponseEntity.ok("Success!");
     }
 }

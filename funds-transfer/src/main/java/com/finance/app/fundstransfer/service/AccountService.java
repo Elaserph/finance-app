@@ -37,7 +37,6 @@ public class AccountService {
         receiverAccount.setBalance(receiverAccount.getBalance().add(transferAmountInReceiverCurrency));
         accountRepository.save(senderAccount);
         accountRepository.save(receiverAccount);
-
         return true;  // Transfer successful
     }
 

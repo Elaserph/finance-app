@@ -23,44 +23,44 @@ import static org.springframework.test.util.ReflectionTestUtils.setField;
 class CurrencyExchangeApiWrapperUnitTest {
 
     @Mock
-    private RestTemplate restTemplate;
+    private RestTemplate restTemplateTest;
 
     @InjectMocks
-    private CurrencyExchangeApiWrapper currencyExchangeApiWrapper;
+    private CurrencyExchangeApiWrapper currencyExchangeApiWrapperTest;
 
     private static final String EXCHANGE_RATE_TEST_URL = "http://localhost:8080/api/exchange-rate/USD/EUR";
 
     @BeforeEach
     public void setUp() {
         // Inject the base URL via reflection
-        setField(currencyExchangeApiWrapper, "currencyExchangeServer", "http://localhost:8080");
+        setField(currencyExchangeApiWrapperTest, "currencyExchangeServer", "http://localhost:8080");
     }
 
         @Test
         void testGetExchangeRate_Success() {
         BigDecimal expectedRate = BigDecimal.valueOf(0.85);
-        when(restTemplate.getForEntity(EXCHANGE_RATE_TEST_URL, BigDecimal.class))
+        when(restTemplateTest.getForEntity(EXCHANGE_RATE_TEST_URL, BigDecimal.class))
                 .thenReturn(new ResponseEntity<>(expectedRate, HttpStatus.OK));
 
-        BigDecimal actualRate = currencyExchangeApiWrapper.getExchangeRate("USD", "EUR");
+        BigDecimal actualRate = currencyExchangeApiWrapperTest.getExchangeRate("USD", "EUR");
         assertEquals(expectedRate, actualRate);
     }
 
         @Test
         void testGetExchangeRate_NotFound() {
-        when(restTemplate.getForEntity(EXCHANGE_RATE_TEST_URL, BigDecimal.class))
+        when(restTemplateTest.getForEntity(EXCHANGE_RATE_TEST_URL, BigDecimal.class))
                 .thenThrow(new HttpClientErrorException(HttpStatus.NOT_FOUND));
 
         assertThrows(ResourceNotFoundException.class, () ->
-                currencyExchangeApiWrapper.getExchangeRate("USD", "EUR"));
+                currencyExchangeApiWrapperTest.getExchangeRate("USD", "EUR"));
     }
 
         @Test
         void testGetExchangeRate_OtherException() {
-        when(restTemplate.getForEntity(EXCHANGE_RATE_TEST_URL, BigDecimal.class))
+        when(restTemplateTest.getForEntity(EXCHANGE_RATE_TEST_URL, BigDecimal.class))
                 .thenThrow(new HttpClientErrorException(HttpStatus.INTERNAL_SERVER_ERROR));
 
         assertThrows(HttpClientErrorException.class, () ->
-                currencyExchangeApiWrapper.getExchangeRate("USD", "EUR"));
+                currencyExchangeApiWrapperTest.getExchangeRate("USD", "EUR"));
     }
 }

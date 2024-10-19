@@ -30,7 +30,7 @@ class AccountServiceUnitTest {
     private CurrencyExchangeApiWrapper currencyExchangeApiWrapperTest;
 
     @InjectMocks
-    private AccountService accountService;
+    private AccountService accountServiceTest;
 
     private FundsTransferRequest requestTest;
     private AccountEntity senderAccountTest;
@@ -60,7 +60,7 @@ class AccountServiceUnitTest {
         when(accountRepositoryTest.findByAccountNumberForUpdate(anyString())).thenReturn(receiverAccountTest);
         when(currencyExchangeApiWrapperTest.getExchangeRate(anyString(), anyString())).thenReturn(BigDecimal.ONE);
 
-        assertTrue(accountService.transferFunds(requestTest));
+        assertTrue(accountServiceTest.transferFunds(requestTest));
         verify(accountRepositoryTest, times(1)).save(senderAccountTest);
         verify(accountRepositoryTest, times(1)).save(receiverAccountTest);
     }
@@ -72,7 +72,7 @@ class AccountServiceUnitTest {
         when(accountRepositoryTest.findByAccountNumberAndOwnerIdForUpdate(anyString(), anyLong())).thenReturn(senderAccountTest);
         when(accountRepositoryTest.findByAccountNumberForUpdate(anyString())).thenReturn(receiverAccountTest);
 
-        assertThrows(InsufficientFundsException.class, () -> accountService.transferFunds(requestTest));
+        assertThrows(InsufficientFundsException.class, () -> accountServiceTest.transferFunds(requestTest));
     }
 
     @Test
@@ -80,14 +80,14 @@ class AccountServiceUnitTest {
         when(accountRepositoryTest.findByAccountNumberAndOwnerIdForUpdate(anyString(), anyLong())).thenReturn(senderAccountTest);
         when(accountRepositoryTest.findByAccountNumberForUpdate(anyString())).thenReturn(null);
 
-        assertThrows(ResourceNotFoundException.class, () -> accountService.transferFunds(requestTest));
+        assertThrows(ResourceNotFoundException.class, () -> accountServiceTest.transferFunds(requestTest));
     }
 
     @Test
     void testTransferFunds_SenderAccountNotFound() {
         when(accountRepositoryTest.findByAccountNumberAndOwnerIdForUpdate(anyString(), anyLong())).thenReturn(null);
 
-        assertThrows(ResourceNotFoundException.class, () -> accountService.transferFunds(requestTest));
+        assertThrows(ResourceNotFoundException.class, () -> accountServiceTest.transferFunds(requestTest));
     }
 
     @Test
@@ -95,6 +95,6 @@ class AccountServiceUnitTest {
         when(accountRepositoryTest.findByAccountNumberAndOwnerIdForUpdate(anyString(), anyLong()))
                 .thenThrow(new PessimisticLockingFailureException("Concurrent access"));
 
-        assertThrows(PessimisticLockingFailureException.class, () -> accountService.transferFunds(requestTest));
+        assertThrows(PessimisticLockingFailureException.class, () -> accountServiceTest.transferFunds(requestTest));
     }
 }

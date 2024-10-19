@@ -8,7 +8,6 @@ public class FundsTransferApplication {
 
     public static void main(String[] args) {
         SpringApplication.run(FundsTransferApplication.class, args);
-        System.out.println("Funds Transfer app!!!");
     }
 
 }
