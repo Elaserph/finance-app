@@ -10,8 +10,7 @@ import org.springframework.data.repository.query.Param;
 /**
  * Repository for managing AccountEntity operations.
  *
- * @author
- * <a href="https://github.com/Elaserph">elaserph</a>
+ * @author <a href="https://github.com/Elaserph">elaserph</a>
  */
 public interface AccountRepository extends JpaRepository<AccountEntity, Long> {
 
@@ -19,7 +18,7 @@ public interface AccountRepository extends JpaRepository<AccountEntity, Long> {
      * Finds an account by account number and owner ID with a pessimistic write lock.
      *
      * @param accountNumber the account number.
-     * @param ownerId the owner's ID.
+     * @param ownerId       the owner's ID.
      * @return the matching account entity.
      */
     @Lock(LockModeType.PESSIMISTIC_WRITE)

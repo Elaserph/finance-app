@@ -11,8 +11,7 @@ import java.math.BigDecimal;
  * Maps to the "account" table in the database.
  * Provides details about an account, including its owner, account number, type, currency, and balance.
  *
- * @author
- * <a href="https://github.com/Elaserph">elaserph</a>
+ * @author <a href="https://github.com/Elaserph">elaserph</a>
  */
 @Entity
 @Table(name = "account")

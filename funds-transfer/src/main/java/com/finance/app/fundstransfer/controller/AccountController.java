@@ -15,8 +15,7 @@ import org.springframework.web.bind.annotation.RestController;
 /**
  * REST controller for handling account-related operations, specifically funds transfer.
  *
- * @author
- * <a href="https://github.com/Elaserph">elaserph</a>
+ * @author <a href="https://github.com/Elaserph">elaserph</a>
  */
 @RestController
 @RequestMapping(FundsTransferApiPaths.ROOT_PATH)
@@ -33,7 +32,7 @@ public class AccountController {
      *
      * @param request the funds transfer request containing transfer details.
      * @return a {@link ResponseEntity} containing a success message if the transfer is successful
-     *          else throws an appropriate exception, handled by {@link ControllerExceptionHandler}
+     * else throws an appropriate exception, handled by {@link ControllerExceptionHandler}
      */
     @PostMapping(path = {
             FundsTransferApiPaths.FUNDS_TRANSFER_PATH,

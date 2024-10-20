@@ -19,8 +19,7 @@ import java.math.BigDecimal;
  * This class provides methods for validating transfer requests, calculating transferable amounts using exchange rate,
  * and performing the actual fund transfer while ensuring data consistency and transactional integrity.
  *
- * @author
- * <a href="https://github.com/Elaserph">elaserph</a>
+ * @author <a href="https://github.com/Elaserph">elaserph</a>
  */
 @Service
 public class AccountService {
@@ -40,11 +39,11 @@ public class AccountService {
      *
      * @param request the transfer request containing details such as sender account, receiver account, and amount.
      * @return true if the transfer is successful.
-     * @throws ResourceNotFoundException if the sender or receiver account or exchange rate is not found.
-     * @throws InsufficientFundsException if the sender account has insufficient funds.
-     * @throws HttpClientErrorException when an HTTP 4xx is received from exchange rate api
+     * @throws ResourceNotFoundException          if the sender or receiver account or exchange rate is not found.
+     * @throws InsufficientFundsException         if the sender account has insufficient funds.
+     * @throws HttpClientErrorException           when an HTTP 4xx is received from exchange rate api
      * @throws PessimisticLockingFailureException Exception thrown on a pessimistic locking violation.
-     * @throws IllegalArgumentException in case the given entity is null.
+     * @throws IllegalArgumentException           in case the given entity is null.
      */
     @Transactional
     public Boolean transferFunds(FundsTransferRequest request) {
@@ -71,10 +70,10 @@ public class AccountService {
      * Checks whether the sender and receiver accounts exist and have sufficient funds.
      * </p>
      *
-     * @param request the transfer request.
-     * @param senderAccount the sender's account entity.
+     * @param request         the transfer request.
+     * @param senderAccount   the sender's account entity.
      * @param receiverAccount the receiver's account entity.
-     * @throws ResourceNotFoundException if the sender or receiver account is not found.
+     * @throws ResourceNotFoundException  if the sender or receiver account is not found.
      * @throws InsufficientFundsException if the sender account has insufficient funds.
      */
     private void validateTransfer(FundsTransferRequest request, AccountEntity senderAccount, AccountEntity receiverAccount) {
@@ -95,12 +94,12 @@ public class AccountService {
      * Fetches the current exchange rate via an external API call and converts the transfer amount.
      * </p>
      *
-     * @param request the funds transfer request containing transfer details.
-     * @param senderAccount the sender's account entity.
+     * @param request         the funds transfer request containing transfer details.
+     * @param senderAccount   the sender's account entity.
      * @param receiverAccount the receiver's account entity.
      * @return the transferable amount in the receiver's currency.
      * @throws ResourceNotFoundException if exchange rate is not found.
-     * @throws HttpClientErrorException if when an HTTP 4xx is received from exchange rate api
+     * @throws HttpClientErrorException  if when an HTTP 4xx is received from exchange rate api
      */
     private BigDecimal getTransferableAmount(FundsTransferRequest request, AccountEntity senderAccount, AccountEntity receiverAccount) {
         // Fetch the current exchange rate via external api call

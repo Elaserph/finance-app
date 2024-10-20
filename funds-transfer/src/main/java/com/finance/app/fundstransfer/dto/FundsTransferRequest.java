@@ -15,8 +15,7 @@ import java.math.BigDecimal;
  * Validation annotations ensure the fields are validated before processing the transfer.
  * </p>
  *
- * @author
- * <a href="https://github.com/Elaserph">elaserph</a>
+ * @author <a href="https://github.com/Elaserph">elaserph</a>
  */
 @Data
 public class FundsTransferRequest implements Serializable {

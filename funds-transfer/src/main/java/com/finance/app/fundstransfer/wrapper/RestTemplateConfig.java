@@ -10,8 +10,7 @@ import org.springframework.web.client.RestTemplate;
  * Provides a centrally configured {@link RestTemplate} bean that can be used for making HTTP requests.
  * </p>
  *
- * @author
- * <a href="https://github.com/Elaserph">elaserph</a>
+ * @author <a href="https://github.com/Elaserph">elaserph</a>
  */
 @Configuration
 public class RestTemplateConfig {

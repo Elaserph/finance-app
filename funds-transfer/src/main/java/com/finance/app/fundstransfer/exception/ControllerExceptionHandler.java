@@ -20,8 +20,7 @@ import java.util.Map;
  * providing meaningful error messages to the client. For other runtime exceptions, it provides a generic error response.
  * </p>
  *
- * @author
- * <a href="https://github.com/Elaserph">elaserph</a>
+ * @author <a href="https://github.com/Elaserph">elaserph</a>
  */
 @ControllerAdvice
 public class ControllerExceptionHandler {

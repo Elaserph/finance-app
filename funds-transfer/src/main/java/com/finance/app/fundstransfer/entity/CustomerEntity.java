@@ -14,8 +14,7 @@ import java.util.List;
  * Each customer can have multiple associated accounts (debit, credit), represented by the {@link AccountEntity} class.
  * </p>
  *
- * @author
- * <a href="https://github.com/Elaserph">elaserph</a>
+ * @author <a href="https://github.com/Elaserph">elaserph</a>
  */
 @Entity
 @Table(name = "customer")

@@ -23,8 +23,7 @@ import java.math.BigDecimal;
  * The API server URL is injected from the application properties using the {@link Value} annotation.
  * </p>
  *
- * @author
- * <a href="https://github.com/Elaserph">elaserph</a>
+ * @author <a href="https://github.com/Elaserph">elaserph</a>
  */
 @Component
 public class CurrencyExchangeApiWrapper {
@@ -39,10 +38,10 @@ public class CurrencyExchangeApiWrapper {
      * Retrieves the exchange rate between two currencies.
      *
      * @param currencyFrom the currency to convert from, currency code format (e.g., "USD").
-     * @param currencyTo the currency to convert to, currency code format (e.g., "EUR").
+     * @param currencyTo   the currency to convert to, currency code format (e.g., "EUR").
      * @return the exchange rate between the specified currencies.
      * @throws ResourceNotFoundException if the exchange rate is not found.
-     * @throws HttpClientErrorException for other HTTP 4xx errors.
+     * @throws HttpClientErrorException  for other HTTP 4xx errors.
      */
     public BigDecimal getExchangeRate(String currencyFrom, String currencyTo) {
         try {

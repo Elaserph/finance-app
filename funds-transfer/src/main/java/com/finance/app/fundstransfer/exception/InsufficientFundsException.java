@@ -6,8 +6,7 @@ package com.finance.app.fundstransfer.exception;
  * Extends {@link RuntimeException}.
  * </p>
  *
- * @author
- * <a href="https://github.com/Elaserph">elaserph</a>
+ * @author <a href="https://github.com/Elaserph">elaserph</a>
  */
 public class InsufficientFundsException extends RuntimeException {
 

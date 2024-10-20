@@ -10,8 +10,7 @@ import org.springframework.web.bind.annotation.RestController;
  * Global custom controller for rendering errors in the application.
  * Implements Spring's {@link ErrorController} to provide custom error handling.
  *
- * @author
- * <a href="https://github.com/Elaserph">elaserph</a>
+ * @author <a href="https://github.com/Elaserph">elaserph</a>
  */
 @RestController
 public class CustomErrorController implements ErrorController {

@@ -23,8 +23,10 @@ import static org.springframework.test.util.ReflectionTestUtils.setField;
 class CurrencyExchangeApiWrapperUnitTest {
 
     private static final String EXCHANGE_RATE_TEST_URL = "http://localhost:8080/api/exchange-rate/USD/EUR";
+
     @Mock
     private RestTemplate restTemplateTest;
+
     @InjectMocks
     private CurrencyExchangeApiWrapper currencyExchangeApiWrapperTest;
 
