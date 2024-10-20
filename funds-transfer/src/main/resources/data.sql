@@ -18,7 +18,7 @@ INSERT INTO customer (id, first_name, last_name, email) VALUES (17, 'Alexander',
 INSERT INTO customer (id, first_name, last_name, email) VALUES (18, 'Isabella', 'Allen', 'isabella.allen@example.com');
 INSERT INTO customer (id, first_name, last_name, email) VALUES (19, 'Ethan', 'Young', 'ethan.young@example.com');
 INSERT INTO customer (id, first_name, last_name, email) VALUES (20, 'Abigail', 'King', 'abigail.king@example.com');
-INSERT INTO customer (id, first_name, last_name, email) VALUES (21, 'Lucas', 'Scott', 'lucas.scott@example.com');
+INSERT INTO customer (id, first_name, last_name, email) VALUES (21, 'Mansi', 'Kumpawat', 'lucas.scott@example.com');
 INSERT INTO customer (id, first_name, last_name, email) VALUES (22, 'Shreepal', 'Shekhawat', 'shreepal.shekhawat@example.com');
 
 INSERT INTO account (id, owner_id, account_number, account_type, currency, balance) VALUES (1, 1, 'ACC11', 'debit', 'USD', 1000.00);

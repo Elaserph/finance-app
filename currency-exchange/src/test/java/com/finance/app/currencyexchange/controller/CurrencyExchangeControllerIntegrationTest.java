@@ -17,7 +17,8 @@ class CurrencyExchangeControllerIntegrationTest extends CurrencyExchangeApplicat
             "USD, EUR, 0.85",
             "GbP, USd, 1.33",
             "eur, inr, 91.54",
-            "USd, NOK, 8.75"
+            "USd, NOK, 8.75",
+            "USd, usd, 1"
     })
     void testGetExchangeRate_Success(String fromCurrency, String toCurrency, String expectedRate) throws Exception {
         mockMvc.perform(get(CurrencyExchangeApiPaths.getExchangeRateApiPath(fromCurrency, toCurrency, null)))

@@ -86,6 +86,20 @@ public class ControllerExceptionHandler {
     }
 
     /**
+     * Handles {@link IllegalArgumentException} and returns an illegal argument error response.
+     *
+     * @param ex the exception.
+     * @return a {@link ResponseEntity} containing the error message and a BAD_REQUEST status.
+     */
+    @ExceptionHandler(IllegalArgumentException.class)
+    public ResponseEntity<Map<String, String>> handleIllegalArgumentException(IllegalArgumentException ex) {
+        Map<String, String> response = new HashMap<>();
+        response.put(ERROR, "Illegal arguments");
+        response.put(MESSAGE, ex.getMessage());
+        return new ResponseEntity<>(response, HttpStatus.BAD_REQUEST);
+    }
+
+    /**
      * Handles any {@link RuntimeException} that is not specifically handled by other methods.
      *
      * <p>one exception to rule them all!</p>

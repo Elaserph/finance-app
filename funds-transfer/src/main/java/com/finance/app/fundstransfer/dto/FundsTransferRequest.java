@@ -20,6 +20,7 @@ import java.math.BigDecimal;
 @Data
 public class FundsTransferRequest implements Serializable {
 
+    //not modifiable by user directly, filled by client ui or calling system based on sender account's details
     @NotNull(message = "Owner ID is required")
     private Long ownerId;
 
@@ -33,6 +34,7 @@ public class FundsTransferRequest implements Serializable {
     @Positive(message = "Transfer amount must be positive")
     private BigDecimal transferAmount;
 
+    //not modifiable by user directly, filled by client ui or calling system based on sender account's currency
     @NotBlank(message = "Transfer account currency is required")
     private String transferAccountCurrency;
 }

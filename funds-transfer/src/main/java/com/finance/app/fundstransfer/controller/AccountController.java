@@ -29,6 +29,18 @@ public class AccountController {
      * <p>
      * Validates the {@link FundsTransferRequest} and delegates the transfer to {@link AccountService}.
      * </p>
+     * <p>
+     * Here is an example of what the request body JSON of {@link FundsTransferRequest} should look like:
+     * <pre>
+     *      <code>{
+     *          "ownerId": 22,
+     *          "senderAccount": "ACC2243",
+     *          "receiverAccount": "ACC2141",
+     *          "transferAmount": 500,
+     *          "transferAccountCurrency": "EUR"
+     *      }</code>
+     *  </pre>
+     * </p>
      *
      * @param request the funds transfer request containing transfer details.
      * @return a {@link ResponseEntity} containing a success message if the transfer is successful

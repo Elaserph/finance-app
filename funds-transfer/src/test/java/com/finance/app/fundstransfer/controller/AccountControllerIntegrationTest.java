@@ -174,4 +174,38 @@ class AccountControllerIntegrationTest extends FundsTransferApplicationTests {
                 .andExpect(status().isBadRequest())
                 .andExpect(content().string(containsString("Unknown error")));
     }
+
+    private static Stream<String> jsonRequests_IllegalArgument() {
+        return Stream.of(
+                //transferAccountCurrency mismatch, USD requested but the sender account currency is INR, must be same
+                //usually transferAccountCurrency will be filled by system/client-ui, based on the logged-in/selected sender account's details
+                """
+                {
+                    "ownerId": 20,
+                    "senderAccount": "ACC2040",
+                    "receiverAccount": "ACC2040",
+                    "transferAmount": 10,
+                    "transferAccountCurrency": "USD"
+                }""",
+                //sender and receiver accounts must not be same
+                """
+                {
+                    "ownerId": 20,
+                    "senderAccount": "ACC2040",
+                    "receiverAccount": "ACC2040",
+                    "transferAmount": 10,
+                    "transferAccountCurrency": "INR"
+                }"""
+        );
+    }
+
+    @ParameterizedTest
+    @MethodSource("jsonRequests_IllegalArgument")
+    void transferFunds_IllegalArgument(String requestJson) throws Exception {
+        mockMvc.perform(post(FundsTransferApiPaths.getFundsTransferApiPath(null))
+                        .contentType(MediaType.APPLICATION_JSON)
+                        .content(requestJson))
+                .andExpect(status().isBadRequest())
+                .andExpect(content().string(containsString("Illegal arguments")));
+    }
 }

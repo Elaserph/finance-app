@@ -43,10 +43,15 @@ public class AccountService {
      * @throws InsufficientFundsException         if the sender account has insufficient funds.
      * @throws HttpClientErrorException           when an HTTP 4xx is received from exchange rate api
      * @throws PessimisticLockingFailureException Exception thrown on a pessimistic locking violation.
-     * @throws IllegalArgumentException           in case the given entity is null.
+     * @throws IllegalArgumentException           in case the given entity is null, if transfer accounts are same
+     *                                            or sender account currency mismatches with transfer currency
      */
     @Transactional
     public Boolean transferFunds(FundsTransferRequest request) {
+        if (request.getSenderAccount().equals(request.getReceiverAccount())) {
+            //throw exception if accounts are same
+            throw new IllegalArgumentException("Transfer failed! Sender and receiver accounts must not be the same");
+        }
         //get account details
         AccountEntity senderAccount = accountRepository.findByAccountNumberAndOwnerIdForUpdate(request.getSenderAccount(), request.getOwnerId());
         AccountEntity receiverAccount = accountRepository.findByAccountNumberForUpdate(request.getReceiverAccount());
@@ -78,13 +83,16 @@ public class AccountService {
      */
     private void validateTransfer(FundsTransferRequest request, AccountEntity senderAccount, AccountEntity receiverAccount) {
         if (senderAccount == null) {
-            throw new ResourceNotFoundException("Transfer failed! Sender account or Owner not found!");  // Invalid request
+            throw new ResourceNotFoundException("Transfer failed! Sender account or Owner not found!");  //Invalid request
         }
         if (receiverAccount == null) {
-            throw new ResourceNotFoundException("Transfer failed! Receiver account is not found!");  // Invalid request
+            throw new ResourceNotFoundException("Transfer failed! Receiver account is not found!");  //Invalid request
         }
         if (senderAccount.getBalance().compareTo(request.getTransferAmount()) < 0) {
-            throw new InsufficientFundsException("Transfer failed! Insufficient funds, check balance!");  // Insufficient funds
+            throw new InsufficientFundsException("Transfer failed! Insufficient funds, check balance!");  //Insufficient funds
+        }
+        if (!request.getTransferAccountCurrency().equalsIgnoreCase(senderAccount.getCurrency())) {
+            throw new IllegalArgumentException("Transfer failed! transfer amount currency different from sender account currency."); // Invalid request
         }
     }
 

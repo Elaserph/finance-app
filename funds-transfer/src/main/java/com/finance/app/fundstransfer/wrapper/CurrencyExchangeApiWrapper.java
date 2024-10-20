@@ -53,9 +53,8 @@ public class CurrencyExchangeApiWrapper {
         } catch (HttpClientErrorException ex) {
             if (ex.getStatusCode() == HttpStatus.NOT_FOUND) {
                 throw new ResourceNotFoundException("Transfer failed! Exchange rate not found for " + currencyFrom + " to " + currencyTo);
-            } else {
-                throw ex;  // Re-throw other exceptions
             }
+            throw ex;  // Re-throw other exceptions
         }
     }
 }
