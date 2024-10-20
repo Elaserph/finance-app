@@ -11,6 +11,12 @@ import org.springframework.web.bind.annotation.RestController;
 
 import java.math.BigDecimal;
 
+/**
+ * Controller for handling currency exchange rate requests.
+ *
+ * @author
+ * <a href="https://github.com/Elaserph">elaserph</a>
+ */
 @RestController
 @RequestMapping(CurrencyExchangeApiPaths.ROOT_PATH)
 public class CurrencyExchangeController {
@@ -18,6 +24,13 @@ public class CurrencyExchangeController {
     @Autowired
     private CurrencyExchangeService currencyExchangeService;
 
+    /**
+     * Retrieves the exchange rate between two specified currencies.
+     *
+     * @param currencyFrom the currency to convert from,  in ISO 4217 currency code format (e.g., "USD").
+     * @param currencyTo   the currency to convert to,  in ISO 4217 currency code format (e.g., "EUR").
+     * @return a {@link ResponseEntity} containing the exchange rate, or a 404 status if the exchange rate is not found.
+     */
     @GetMapping(path = {
             CurrencyExchangeApiPaths.EXCHANGE_RATE_PATH,
             CurrencyExchangeApiPaths.EXCHANGE_RATE_PATH_V1

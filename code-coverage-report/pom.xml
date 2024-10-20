@@ -15,6 +15,7 @@
         <java.version>17</java.version>
     </properties>
     <dependencies>
+        <!--include all submodules to be covered in aggregated code coverage report-->
         <dependency>
             <groupId>com.finance.app</groupId>
             <artifactId>currency-exchange</artifactId>
@@ -33,6 +34,7 @@
     </dependencies>
     <build>
         <plugins>
+            <!--jacoco plugin config to aggregate the reports and exclude certain trivial files-->
             <plugin>
                 <groupId>org.jacoco</groupId>
                 <artifactId>jacoco-maven-plugin</artifactId>

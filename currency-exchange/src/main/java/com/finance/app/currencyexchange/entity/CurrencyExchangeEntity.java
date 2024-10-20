@@ -7,6 +7,15 @@ import lombok.NoArgsConstructor;
 import java.math.BigDecimal;
 import java.time.LocalDateTime;
 
+/**
+ * Entity representing the currency exchange information.
+ * Maps to the "currency_exchange" table in the database.
+ * Provides details about the exchange rate between two currencies at a specific timestamp.
+ * For representational purpose, data is static
+ *
+ * @author
+ * <a href="https://github.com/Elaserph">elaserph</a>
+ */
 @Entity
 @Table(name = "currency_exchange")
 @Data

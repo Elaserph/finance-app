@@ -19,6 +19,7 @@
         <jacoco-maven-plugin.version>0.8.8</jacoco-maven-plugin.version>
     </properties>
     <modules>
+        <!--submodules of this project-->
         <module>currency-exchange</module>
         <module>funds-transfer</module>
         <module>service-commons</module>
@@ -40,6 +41,7 @@
         <url>https://github.com/Elaserph/finance-app.git</url>
     </scm>
     <dependencies>
+        <!--lombok dependency-->
         <dependency>
             <groupId>org.projectlombok</groupId>
             <artifactId>lombok</artifactId>
@@ -48,6 +50,7 @@
     </dependencies>
     <build>
         <resources>
+            <!--filtering required to inject properties in resource files during build-->
             <resource>
                 <directory>src/main/resources</directory>
                 <filtering>true</filtering>
@@ -55,6 +58,7 @@
         </resources>
         <pluginManagement>
             <plugins>
+                <!--jacoco code coverage plugin-->
                 <plugin>
                     <groupId>org.jacoco</groupId>
                     <artifactId>jacoco-maven-plugin</artifactId>
@@ -63,6 +67,7 @@
             </plugins>
         </pluginManagement>
         <plugins>
+            <!--jacoco plugin config-->
             <plugin>
                 <groupId>org.jacoco</groupId>
                 <artifactId>jacoco-maven-plugin</artifactId>
@@ -77,6 +82,7 @@
         </plugins>
     </build>
     <profiles>
+        <!--dev maven profile to inject application-dev.yml configurations in addition to application.yml during build-->
         <profile>
             <id>dev</id>
             <properties>
@@ -84,9 +90,10 @@
                 <springdoc-openapi-starter-webmvc-ui.version>2.6.0</springdoc-openapi-starter-webmvc-ui.version>
             </properties>
             <activation>
-                <activeByDefault>true</activeByDefault> <!--if no profile active, by default dev will be active-->
+                <activeByDefault>true</activeByDefault> <!--if no profile active, by default dev will be active, no need to select manually-->
             </activation>
             <dependencies>
+                <!--openapi and swagger dependency - kept it in dev so as to limit swagger access to dev only-->
                 <dependency>
                     <groupId>org.springdoc</groupId>
                     <artifactId>springdoc-openapi-starter-webmvc-ui</artifactId>

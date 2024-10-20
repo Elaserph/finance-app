@@ -13,9 +13,11 @@
     <description>beans jar to store common api-paths, models etc</description>
     <properties>
         <java.version>17</java.version>
+        <!--redirect coverage reports to code-coverage submodule-->
         <jacoco.reportpath>${project.build.directory}/../code-coverage-report/target/jacoco.exec</jacoco.reportpath>
     </properties>
     <dependencies>
+        <!--for testing-->
         <dependency>
             <groupId>org.junit.jupiter</groupId>
             <artifactId>junit-jupiter-api</artifactId>
