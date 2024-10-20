@@ -8,7 +8,9 @@ import org.junit.jupiter.api.Test;
 import org.junit.jupiter.params.ParameterizedTest;
 import org.junit.jupiter.params.provider.MethodSource;
 import org.springframework.boot.test.mock.mockito.MockBean;
+import org.springframework.http.HttpStatus;
 import org.springframework.http.MediaType;
+import org.springframework.web.client.HttpClientErrorException;
 
 import java.math.BigDecimal;
 import java.util.stream.Stream;
@@ -26,6 +28,7 @@ class AccountControllerIntegrationTest extends FundsTransferApplicationTests {
 
     @BeforeEach
     public void setUp() {
+        //set external api mock to return exchange rate for testing
         when(currencyExchangeApiWrapper.getExchangeRate("INR", "USD")).thenReturn(new BigDecimal("0.012"));
     }
 
@@ -67,6 +70,7 @@ class AccountControllerIntegrationTest extends FundsTransferApplicationTests {
 
     private static Stream<String> jsonRequests_ResourceNotFound() {
         return Stream.of(
+                //receiver account not found
                 """
                 {
                     "ownerId": 20,
@@ -75,6 +79,7 @@ class AccountControllerIntegrationTest extends FundsTransferApplicationTests {
                     "transferAmount": 10,
                     "transferAccountCurrency": "INR"
                 }""",
+                //sender account not found
                 """
                 {
                     "ownerId": 20,
@@ -146,5 +151,27 @@ class AccountControllerIntegrationTest extends FundsTransferApplicationTests {
                         .content(requestJson))
                 .andExpect(status().isBadRequest())
                 .andExpect(content().string(containsString("Arguments validation error")));
+    }
+
+    @Test
+    void transferFunds_ExternalApiError() throws Exception {
+        //reset the mock to return server error - handled by RuntimeException ControllerAdvice
+        when(currencyExchangeApiWrapper.getExchangeRate("INR", "USD"))
+                .thenThrow(new HttpClientErrorException(HttpStatus.INTERNAL_SERVER_ERROR));
+
+        String requestJson = """
+                {
+                    "ownerId": 20,
+                    "senderAccount": "ACC2040",
+                    "receiverAccount": "ACC1937",
+                    "transferAmount": 100,
+                    "transferAccountCurrency": "INR"
+                }""";
+
+        mockMvc.perform(post(FundsTransferApiPaths.getFundsTransferApiPath(null))
+                        .contentType(MediaType.APPLICATION_JSON)
+                        .content(requestJson))
+                .andExpect(status().isBadRequest())
+                .andExpect(content().string(containsString("Unknown error")));
     }
 }
