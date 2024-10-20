@@ -58,7 +58,6 @@ class AccountServiceUnitTest {
     void testTransferFunds_Success() {
         when(accountRepositoryTest.findByAccountNumberAndOwnerIdForUpdate(anyString(), anyLong())).thenReturn(senderAccountTest);
         when(accountRepositoryTest.findByAccountNumberForUpdate(anyString())).thenReturn(receiverAccountTest);
-        when(currencyExchangeApiWrapperTest.getExchangeRate(anyString(), anyString())).thenReturn(BigDecimal.ONE);
 
         assertTrue(accountServiceTest.transferFunds(requestTest));
         verify(accountRepositoryTest, times(1)).save(senderAccountTest);

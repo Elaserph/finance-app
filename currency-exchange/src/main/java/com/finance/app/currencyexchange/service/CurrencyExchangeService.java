@@ -25,6 +25,9 @@ public class CurrencyExchangeService {
      * @return the exchange rate between the specified currencies, or null if no exchange rate is found.
      */
     public BigDecimal getExchangeRate(String currencyFrom, String currencyTo) {
-        return currencyExchangeRepository.findRateByCurrencyFromAndCurrencyTo(currencyFrom.toUpperCase(), currencyTo.toUpperCase());
+        BigDecimal exchangeRate = BigDecimal.ONE; //default exchange rate be 1
+        if (!currencyFrom.equalsIgnoreCase(currencyTo)) //get exchange rate if currencies are different
+            exchangeRate = currencyExchangeRepository.findRateByCurrencyFromAndCurrencyTo(currencyFrom.toUpperCase(), currencyTo.toUpperCase());
+        return exchangeRate;
     }
 }

@@ -102,8 +102,11 @@ public class AccountService {
      * @throws HttpClientErrorException  if when an HTTP 4xx is received from exchange rate api
      */
     private BigDecimal getTransferableAmount(FundsTransferRequest request, AccountEntity senderAccount, AccountEntity receiverAccount) {
-        // Fetch the current exchange rate via external api call
-        BigDecimal exchangeRate = currencyExchangeApiWrapper.getExchangeRate(senderAccount.getCurrency(), receiverAccount.getCurrency());
+        BigDecimal exchangeRate = BigDecimal.ONE; //default exchange rate be 1
+        if (!senderAccount.getCurrency().equalsIgnoreCase(receiverAccount.getCurrency())) { //compare currencies
+            // Fetch the current exchange rate via external api call
+            exchangeRate = currencyExchangeApiWrapper.getExchangeRate(senderAccount.getCurrency(), receiverAccount.getCurrency());
+        }
         return request.getTransferAmount().multiply(exchangeRate);
     }
 
