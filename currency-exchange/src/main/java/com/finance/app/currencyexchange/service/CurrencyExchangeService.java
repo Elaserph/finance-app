@@ -9,8 +9,7 @@ import java.math.BigDecimal;
 /**
  * Service for handling currency exchange rate requests.
  *
- * @author
- * <a href="https://github.com/Elaserph">elaserph</a>
+ * @author <a href="https://github.com/Elaserph">elaserph</a>
  */
 @Service
 public class CurrencyExchangeService {
@@ -22,7 +21,7 @@ public class CurrencyExchangeService {
      * Retrieves the exchange rate between two currencies.
      *
      * @param currencyFrom the currency to convert from, currency code format (e.g., "USD").
-     * @param currencyTo the currency to convert to, currency code format (e.g., "EUR").
+     * @param currencyTo   the currency to convert to, currency code format (e.g., "EUR").
      * @return the exchange rate between the specified currencies, or null if no exchange rate is found.
      */
     public BigDecimal getExchangeRate(String currencyFrom, String currencyTo) {

@@ -13,8 +13,7 @@ import java.time.LocalDateTime;
  * Provides details about the exchange rate between two currencies at a specific timestamp.
  * For representational purpose, data is static
  *
- * @author
- * <a href="https://github.com/Elaserph">elaserph</a>
+ * @author <a href="https://github.com/Elaserph">elaserph</a>
  */
 @Entity
 @Table(name = "currency_exchange")

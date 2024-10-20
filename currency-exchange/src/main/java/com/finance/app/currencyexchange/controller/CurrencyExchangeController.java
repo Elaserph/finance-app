@@ -14,8 +14,7 @@ import java.math.BigDecimal;
 /**
  * REST Controller for handling currency exchange rate requests.
  *
- * @author
- * <a href="https://github.com/Elaserph">elaserph</a>
+ * @author <a href="https://github.com/Elaserph">elaserph</a>
  */
 @RestController
 @RequestMapping(CurrencyExchangeApiPaths.ROOT_PATH)

@@ -6,8 +6,7 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 /**
  * CurrencyExchangeApplication to retrieve exchange rates
  *
- * @author
- * <a href="https://github.com/Elaserph">elaserph</a>
+ * @author <a href="https://github.com/Elaserph">elaserph</a>
  */
 @SpringBootApplication
 public class CurrencyExchangeApplication {

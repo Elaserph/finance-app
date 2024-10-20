@@ -9,8 +9,7 @@ import org.springframework.test.web.servlet.MockMvc;
 /**
  * Base class for integration tests
  *
- * @author
- * <a href="https://github.com/Elaserph">elaserph</a>
+ * @author <a href="https://github.com/Elaserph">elaserph</a>
  */
 @SpringBootTest
 @AutoConfigureMockMvc
