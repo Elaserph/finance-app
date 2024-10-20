@@ -5,8 +5,7 @@ package com.finance.app.commons.path;
  * Provides constants for common paths and utility methods for generating specific paths.
  * This class is final and cannot be instantiated.
  *
- * @author
- * <a href="https://github.com/Elaserph">elaserph</a>
+ * @author <a href="https://github.com/Elaserph">elaserph</a>
  */
 public final class FundsTransferApiPaths {
 
