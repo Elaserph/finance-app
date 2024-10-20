@@ -12,6 +12,20 @@ import org.springframework.web.client.RestTemplate;
 
 import java.math.BigDecimal;
 
+/**
+ * Wrapper class for calling the external currency-exchange API.
+ * Provides methods to retrieve exchange rates between currencies.
+ *
+ * <p>
+ * The class uses {@link RestTemplate} for making HTTP requests to the API.
+ * </p>
+ * <p>
+ * The API server URL is injected from the application properties using the {@link Value} annotation.
+ * </p>
+ *
+ * @author
+ * <a href="https://github.com/Elaserph">elaserph</a>
+ */
 @Component
 public class CurrencyExchangeApiWrapper {
 
@@ -21,9 +35,20 @@ public class CurrencyExchangeApiWrapper {
     @Value("${currency.exchange.server}")
     private String currencyExchangeServer;
 
+    /**
+     * Retrieves the exchange rate between two currencies.
+     *
+     * @param currencyFrom the currency to convert from, currency code format (e.g., "USD").
+     * @param currencyTo the currency to convert to, currency code format (e.g., "EUR").
+     * @return the exchange rate between the specified currencies.
+     * @throws ResourceNotFoundException if the exchange rate is not found.
+     * @throws HttpClientErrorException for other HTTP 4xx errors.
+     */
     public BigDecimal getExchangeRate(String currencyFrom, String currencyTo) {
         try {
+            //get the exchange rate url
             String exchangeRateUrl = currencyExchangeServer + CurrencyExchangeApiPaths.getExchangeRateApiPath(currencyFrom, currencyTo, null);
+            //rest get call
             ResponseEntity<BigDecimal> response = restTemplate.getForEntity(exchangeRateUrl, BigDecimal.class);
             return response.getBody();
         } catch (HttpClientErrorException ex) {

@@ -61,5 +61,9 @@ INSERT INTO account (id, owner_id, account_number, account_type, currency, balan
 INSERT INTO account (id, owner_id, account_number, account_type, currency, balance) VALUES (38, 19, 'ACC1938', 'credit', 'CNY', 100.00);
 INSERT INTO account (id, owner_id, account_number, account_type, currency, balance) VALUES (39, 20, 'ACC2039', 'debit', 'EUR', 900.00);
 INSERT INTO account (id, owner_id, account_number, account_type, currency, balance) VALUES (40, 20, 'ACC2040', 'credit', 'INR', 1050.00);
+INSERT INTO account (id, owner_id, account_number, account_type, currency, balance) VALUES (41, 21, 'ACC2141', 'debit', 'EUR', 5000.00);
+INSERT INTO account (id, owner_id, account_number, account_type, currency, balance) VALUES (42, 21, 'ACC2142', 'credit', 'INR', 100000.00);
+INSERT INTO account (id, owner_id, account_number, account_type, currency, balance) VALUES (43, 22, 'ACC2243', 'debit', 'EUR', 50000.00);
+INSERT INTO account (id, owner_id, account_number, account_type, currency, balance) VALUES (44, 22, 'ACC2244', 'credit', 'INR', 1000000.00);
 
 

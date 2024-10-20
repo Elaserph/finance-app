@@ -8,6 +8,16 @@ import lombok.Data;
 import java.io.Serializable;
 import java.math.BigDecimal;
 
+/**
+ * Data transfer object for funds transfer requests.
+ * Captures the details required to process a funds transfer
+ * <p>
+ * Validation annotations ensure the fields are validated before processing the transfer.
+ * </p>
+ *
+ * @author
+ * <a href="https://github.com/Elaserph">elaserph</a>
+ */
 @Data
 public class FundsTransferRequest implements Serializable {
 

@@ -12,7 +12,7 @@ import org.springframework.web.bind.annotation.RestController;
 import java.math.BigDecimal;
 
 /**
- * Controller for handling currency exchange rate requests.
+ * REST Controller for handling currency exchange rate requests.
  *
  * @author
  * <a href="https://github.com/Elaserph">elaserph</a>

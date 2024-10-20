@@ -6,6 +6,17 @@ import lombok.NoArgsConstructor;
 
 import java.util.List;
 
+/**
+ * Entity representing a customer.
+ * Maps to the "customer" table in the database.
+ * Provides details about a customer, including their name, email, and associated accounts.
+ * <p>
+ * Each customer can have multiple associated accounts (debit, credit), represented by the {@link AccountEntity} class.
+ * </p>
+ *
+ * @author
+ * <a href="https://github.com/Elaserph">elaserph</a>
+ */
 @Entity
 @Table(name = "customer")
 @Data
