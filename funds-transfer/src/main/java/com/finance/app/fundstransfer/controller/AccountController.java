@@ -2,7 +2,7 @@ package com.finance.app.fundstransfer.controller;
 
 import com.finance.app.commons.path.FundsTransferApiPaths;
 import com.finance.app.fundstransfer.dto.FundsTransferRequest;
-import com.finance.app.fundstransfer.exception.ControllerExceptionHandler;
+import com.finance.app.fundstransfer.exception.GlobalExceptionHandler;
 import com.finance.app.fundstransfer.service.AccountService;
 import jakarta.validation.Valid;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -44,7 +44,7 @@ public class AccountController {
      *
      * @param request the funds transfer request containing transfer details.
      * @return a {@link ResponseEntity} containing a success message if the transfer is successful
-     * else throws an appropriate exception, handled by {@link ControllerExceptionHandler}
+     * else throws an appropriate exception, handled by {@link GlobalExceptionHandler}
      */
     @PostMapping(path = {
             FundsTransferApiPaths.FUNDS_TRANSFER_PATH,

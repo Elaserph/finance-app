@@ -23,7 +23,7 @@ import java.util.Map;
  * @author <a href="https://github.com/Elaserph">elaserph</a>
  */
 @ControllerAdvice
-public class ControllerExceptionHandler {
+public class GlobalExceptionHandler {
 
     private static final String ERROR = "error";
     private static final String MESSAGE = "message";
