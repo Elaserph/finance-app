@@ -139,7 +139,7 @@ To stop them, go to the individual terminals running the services and press `ctr
 
 ## Code Coverage
 
-Snapshot of code-coverage of last build:
+Snapshot of code-coverage of last build:<br>
 ![CodeCoverage.gif](code-coverage-report/docs/CodeCoverage.GIF)
 
 To access the latest generated aggregated report after a **clean install** (present in target folder, won't commit to GitHub by default): <br>
