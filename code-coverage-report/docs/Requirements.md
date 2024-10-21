@@ -60,10 +60,10 @@ The balance of the debit account is not sufficient <br>
     SpringBoot multi-module project layout. 
     maven profiles (dev, prod, stage) for seperation of configurations.
     Sonarlint plugin to keep code quality in check.
-    Integration and Unit tests to cover funtionalities (total 50+ tests).
-    JaCoCo Code coverage for better code coverage visibility.
-    OpenAPI and Swagger for API documentation and easy testing
-    Javadocs, code comments and other docs for easy understanding
+    Integration and Unit tests to cover functionalities (total 50+ tests).
+    JaCoCo Code coverage for better code coverage visibility (94% code coverage).
+    OpenAPI and Swagger for API documentation and easy testing in dev profile.
+    Javadocs, code comments and other docs for easy understanding.
     Followed best coding practices and externalization of common properties into a separate jar.
 
 ### As business specification is very light, use common sense in case of doubt 
