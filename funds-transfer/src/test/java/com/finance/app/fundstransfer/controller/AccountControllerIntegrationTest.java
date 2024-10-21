@@ -47,7 +47,7 @@ class AccountControllerIntegrationTest extends FundsTransferApplicationTests {
                         .contentType(MediaType.APPLICATION_JSON)
                         .content(requestJson))
                 .andExpect(status().isOk())
-                .andExpect(content().string("Success!"));
+                .andExpect(content().string(containsString("Success")));
     }
 
     @Test

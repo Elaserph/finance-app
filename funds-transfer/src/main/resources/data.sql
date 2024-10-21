@@ -18,13 +18,13 @@ INSERT INTO customer (id, first_name, last_name, email) VALUES (17, 'Alexander',
 INSERT INTO customer (id, first_name, last_name, email) VALUES (18, 'Isabella', 'Allen', 'isabella.allen@example.com');
 INSERT INTO customer (id, first_name, last_name, email) VALUES (19, 'Ethan', 'Young', 'ethan.young@example.com');
 INSERT INTO customer (id, first_name, last_name, email) VALUES (20, 'Abigail', 'King', 'abigail.king@example.com');
-INSERT INTO customer (id, first_name, last_name, email) VALUES (21, 'Mansi', 'Kumpawat', 'lucas.scott@example.com');
+INSERT INTO customer (id, first_name, last_name, email) VALUES (21, 'Mansi', 'Kumpawat', 'mansi.kumpawat@example.com');
 INSERT INTO customer (id, first_name, last_name, email) VALUES (22, 'Shreepal', 'Shekhawat', 'shreepal.shekhawat@example.com');
 
 INSERT INTO account (id, owner_id, account_number, account_type, currency, balance) VALUES (1, 1, 'ACC11', 'debit', 'USD', 1000.00);
 INSERT INTO account (id, owner_id, account_number, account_type, currency, balance) VALUES (2, 1, 'ACC12', 'credit', 'EUR', 500.00);
-INSERT INTO account (id, owner_id, account_number, account_type, currency, balance) VALUES (3, 2, 'ACC23', 'debit', 'GBP', 750.00);
-INSERT INTO account (id, owner_id, account_number, account_type, currency, balance) VALUES (4, 2, 'ACC24', 'credit', 'JPY', 1200.00);
+INSERT INTO account (id, owner_id, account_number, account_type, currency, balance) VALUES (3, 2, 'ACC23', 'debit', 'EUR', 750.00);
+INSERT INTO account (id, owner_id, account_number, account_type, currency, balance) VALUES (4, 2, 'ACC24', 'credit', 'USD', 1200.00);
 INSERT INTO account (id, owner_id, account_number, account_type, currency, balance) VALUES (5, 3, 'ACC35', 'debit', 'USD', 1500.00);
 INSERT INTO account (id, owner_id, account_number, account_type, currency, balance) VALUES (6, 3, 'ACC36', 'credit', 'CAD', 850.00);
 INSERT INTO account (id, owner_id, account_number, account_type, currency, balance) VALUES (7, 4, 'ACC47', 'debit', 'USD', 2000.00);
@@ -59,11 +59,11 @@ INSERT INTO account (id, owner_id, account_number, account_type, currency, balan
 INSERT INTO account (id, owner_id, account_number, account_type, currency, balance) VALUES (36, 18, 'ACC1836', 'credit', 'HKD', 600.00);
 INSERT INTO account (id, owner_id, account_number, account_type, currency, balance) VALUES (37, 19, 'ACC1937', 'debit', 'USD', 800.00);
 INSERT INTO account (id, owner_id, account_number, account_type, currency, balance) VALUES (38, 19, 'ACC1938', 'credit', 'CNY', 100.00);
-INSERT INTO account (id, owner_id, account_number, account_type, currency, balance) VALUES (39, 20, 'ACC2039', 'debit', 'EUR', 900.00);
+INSERT INTO account (id, owner_id, account_number, account_type, currency, balance) VALUES (39, 20, 'ACC2039', 'debit', 'INR', 900.00);
 INSERT INTO account (id, owner_id, account_number, account_type, currency, balance) VALUES (40, 20, 'ACC2040', 'credit', 'INR', 1050.00);
-INSERT INTO account (id, owner_id, account_number, account_type, currency, balance) VALUES (41, 21, 'ACC2141', 'debit', 'EUR', 5000.00);
-INSERT INTO account (id, owner_id, account_number, account_type, currency, balance) VALUES (42, 21, 'ACC2142', 'credit', 'INR', 100000.00);
+INSERT INTO account (id, owner_id, account_number, account_type, currency, balance) VALUES (41, 21, 'ACC2141', 'debit', 'USD', 5000.00);
+INSERT INTO account (id, owner_id, account_number, account_type, currency, balance) VALUES (42, 21, 'ACC2142', 'credit', 'EUR', 100000.00);
 INSERT INTO account (id, owner_id, account_number, account_type, currency, balance) VALUES (43, 22, 'ACC2243', 'debit', 'EUR', 50000.00);
-INSERT INTO account (id, owner_id, account_number, account_type, currency, balance) VALUES (44, 22, 'ACC2244', 'credit', 'INR', 1000000.00);
+INSERT INTO account (id, owner_id, account_number, account_type, currency, balance) VALUES (44, 22, 'ACC2244', 'credit', 'USD', 1000000.00);
 
 

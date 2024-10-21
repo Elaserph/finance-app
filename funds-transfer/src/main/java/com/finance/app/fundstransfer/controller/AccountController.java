@@ -52,6 +52,6 @@ public class AccountController {
     })
     public ResponseEntity<String> transferFunds(@Valid @RequestBody FundsTransferRequest request) {
         accountService.transferFunds(request);
-        return ResponseEntity.ok("Success!");
+        return ResponseEntity.ok("Success, Funds transferred!");
     }
 }
