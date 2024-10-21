@@ -1,6 +1,6 @@
 # Finance App
 
-Finance App is a multi-module project that includes `currency-exchange` and `funds-transfer` services. This README
+Finance App is a multi-module Spring Boot project that includes `currency-exchange` and `funds-transfer` services. This README
 provides steps to build and run the application.
 
 ## Prerequisites
@@ -146,4 +146,4 @@ To access the latest generated aggregated report after a **clean install** (pres
 [Code Coverage html report](code-coverage-report/target/site/jacoco-aggregate/index.html)
 
 ## Author
-[Shreepal](https://www.linkedin.com/in/elaserph)
+[Shreepal aka elaserph](https://www.linkedin.com/in/elaserph)
